@@ -5,7 +5,8 @@ import styles from './styles/styles';
 
 const SplashScreen = ({ navigation }) => {
   const [fontsLoaded] = useFonts({
-    Poppins: require('../.././assets/fonts/Secondary Font - Poppins/Poppins-Black.ttf'),
+    'Poppins-Regular': require('../../assets/fonts/Poppins/Poppins-Regular.ttf'),
+    'IntegralCF': require('../../assets/fonts/IntegralCF/IntegralCF-Regular.otf'),
   });
 
   useEffect(() => {

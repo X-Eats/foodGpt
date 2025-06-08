@@ -1,48 +1,36 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, StatusBar, Image } from 'react-native';
 import { useFonts } from 'expo-font';
+import Header from '../../components/header';
 
 const XEatsWelcome = ({ navigation }) => {
-  const [fontsLoaded] = useFonts({
-    'Poppins-Bold': require('../.././assets/fonts/Secondary Font - Poppins/Poppins-Bold.ttf'),
-  });
+    const [fontsLoaded] = useFonts({
+      'Poppins-Regular': require('../../assets/fonts/Poppins/Poppins-Regular.ttf'),
+      'Poppins-Medium': require('../../assets/fonts/Poppins/Poppins-Medium.ttf'),
+      'Poppins-SemiBold': require('../../assets/fonts/Poppins/Poppins-SemiBold.ttf'),
+      'Poppins-Bold': require('../../assets/fonts/Poppins/Poppins-Bold.ttf'),
 
+      // IntegralCF
+      'IntegralCF': require('../../assets/fonts/IntegralCF/IntegralCF-Regular.otf'),
+      'IntegralCF-Bold': require('../../assets/fonts/IntegralCF/IntegralCF-Bold.otf'),
+      'IntegralCF-Medium': require('../../assets/fonts/IntegralCF/IntegralCF-Medium.otf'),
+      'IntegralCF-SemiBold': require('../../assets/fonts/IntegralCF/IntegralCF-DemiBold.otf'),
+    });
+
+    
   if (!fontsLoaded) {
     return null; // Render nothing until the font is loaded
   }
-
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#000000" />
-      
-      {/* Status Bar */}
-      <View style={styles.statusBar}>
-        <Text style={styles.time}>9:41</Text>
-        <View style={styles.statusIcons}>
-          <View style={styles.signalBars}>
-            <View style={[styles.bar, styles.bar1]} />
-            <View style={[styles.bar, styles.bar2]} />
-            <View style={[styles.bar, styles.bar3]} />
-            <View style={[styles.bar, styles.bar4]} />
-          </View>
-          <View style={styles.wifi} />
-          <View style={styles.battery} />
-        </View>
-      </View>
+    <Header/>
 
-      {/* Main Content */}
       <View style={styles.content}>
-        {/* Logo */}
-        <View style={styles.logoContainer}>
-          <Image
-            source={require('../.././assets/images/Official_Logo.png')} // Updated to use Official_Logo.png
-            style={styles.logoImage}
-          />
-        </View>
+       
 
         {/* Welcome Section */}
         <View style={styles.welcomeSection}>
-          <Text style={styles.welcomeTitle}>WELCOME</Text>
+          <Text style={styles.welcomeTitle}>Welcome</Text>
           <Text style={styles.welcomeDescription}>
             Lorem Ipsum is simply dummy text of{'\n'}
             the printing and typesetting industry.
@@ -69,7 +57,7 @@ const XEatsWelcome = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: '#fff',
   },
   statusBar: {
     flexDirection: 'row',
@@ -137,17 +125,17 @@ const styles = StyleSheet.create({
   },
   welcomeTitle: {
     fontSize: 18,
-    fontFamily: 'Poppins-Bold', // Ensure Poppins-Bold is loaded
-    // fontWeight: 'bold',
-    color: '#7ef900',
+    fontFamily: 'IntegralCF-Bold', // Ensure Poppins-Bold is loaded
+    color: '#000',
     marginBottom: 20,
     letterSpacing: 2,
   },
   welcomeDescription: {
     fontSize: 16,
-    color: '#FFFFFF',
+    color: '#000',
     textAlign: 'center',
     lineHeight: 22,
+    fontFamily:'Poppins-Medium', // Ensure Poppins-Regular is loaded
   },
   pageIndicators: {
     flexDirection: 'row',
@@ -176,7 +164,7 @@ const styles = StyleSheet.create({
   },
   getStartedText: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'IntegralCF', // Ensure IntegralCF-Bold is loaded
     color: '#000000',
   },
 });
